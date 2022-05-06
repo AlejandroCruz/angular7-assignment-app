@@ -9,6 +9,19 @@ export class AssignmentsComponent implements OnInit {
 
   title = 'My Assignment App'
 
+  assignments = [
+    {
+      name: 'One',
+      dueDate: '2019-01-01',
+      submitted: true
+    },
+    {
+      name: 'Two',
+      dueDate: '2019-01-01',
+      submitted: false
+    }
+  ]
+
   constructor() { }
 
   ngOnInit() {
