@@ -1,6 +1,6 @@
 <form ngForm #assignmentsForm class="form">
   <mat-form-field>
-    <input matInput #assignmentName>
+    <input matInput #assignmentName [(ngModel)]="name" name="nameProp">
   </mat-form-field>
   <button
     mat-stroked-button
@@ -10,6 +10,8 @@
     Add Assignment
   </button>
 </form>
+
+<p>{{name}}</p>
 
 <div *ngFor="let assignment of assignments">
   <p appSubmitted *ngIf="assignment.submitted; else unsubmitted">

@@ -9,6 +9,7 @@ export class AssignmentsComponent implements OnInit {
 
   title = 'My Assignment App';
   btnEnabled = false;
+  name: string;
 
   assignments = [
     {
