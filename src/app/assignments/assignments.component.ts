@@ -30,5 +30,8 @@ export class AssignmentsComponent implements OnInit {
       this.btnEnabled = true;
     }, 2000)
   }
+  onSubmit(name: string) {
+    console.log(name);
+  } 
 
 }
