@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentsComponent implements OnInit {
 
-  title = 'My Assignment App'
+  title = 'My Assignment App';
+  btnEnabled = false;
 
   assignments = [
     {
@@ -25,6 +26,9 @@ export class AssignmentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.btnEnabled = true;
+    }, 2000)
   }
 
 }
