@@ -12,6 +12,7 @@ export class AssignmentsComponent implements OnInit {
   _btnEnabled = false;
   _name: string;
   _dueDate: Date;
+  _selectedAssignment: Assignment;
 
   _assignments: Assignment[] = [
     {
@@ -39,6 +40,9 @@ export class AssignmentsComponent implements OnInit {
     assignment.dueDate = this._dueDate;
 
     this._assignments.push(assignment);
-  } 
+  }
 
+  setSelected(assignment: Assignment) {
+    this._selectedAssignment = assignment;
+  }
 }
