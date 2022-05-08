@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Assignment } from './assignment.model'
 
 @Component({
   selector: 'app-assignments',
@@ -7,19 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentsComponent implements OnInit {
 
-  title = 'My Assignment App';
-  btnEnabled = false;
-  name: string;
+  _title = 'My Assignment App';
+  _btnEnabled = false;
+  _name: string;
+  _dueDate: Date;
 
-  assignments = [
+  _assignments: Assignment[] = [
     {
       name: 'One',
-      dueDate: '2019-01-01',
+      dueDate: new Date('2019-01-01'),
       submitted: true
     },
     {
       name: 'Two',
-      dueDate: '2019-01-01',
+      dueDate: new Date('2019-01-01'),
       submitted: false
     }
   ]
@@ -28,11 +30,15 @@ export class AssignmentsComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.btnEnabled = true;
+      this._btnEnabled = true;
     }, 2000)
   }
-  onSubmit(name: string) {
-    console.log(name);
+  onSubmit() {
+    const assignment = new Assignment();
+    assignment.name = this._name;
+    assignment.dueDate = this._dueDate;
+
+    this._assignments.push(assignment);
   } 
 
 }
