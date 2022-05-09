@@ -10,6 +10,7 @@ import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
+import { AssignmentsService } from './shared/assignments.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
     MatCardModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [
+    AssignmentsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
