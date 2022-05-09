@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule } from '@angular/material';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
-import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
+import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
     AssignmentsComponent,
     SubmittedDirective,
     UnsubmittedDirective,
-    AssignmentDetailComponent
+    AssignmentDetailComponent,
+    AddAssignmentComponent
   ],
   imports: [
     BrowserAnimationsModule,
