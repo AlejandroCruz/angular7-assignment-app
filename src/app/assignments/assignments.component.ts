@@ -42,5 +42,11 @@ export class AssignmentsComponent implements OnInit {
 
   onAddButtonClick() {
     this._formVisible = true;
+    this._selectedAssignment = null;
+  }
+
+  onNewAssignment(inEvent: Assignment) {
+    this._assignments.push(inEvent);
+    this._formVisible = false;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Assignment } from '../assignment.model';
 
 @Component({
@@ -13,6 +13,8 @@ export class AddAssignmentComponent implements OnInit {
   _btnEnabled = false;
   _assignments: Assignment[] = [];
 
+  @Output() child_NewAssignmentEvent = new EventEmitter<Assignment>();
+
   constructor() { }
 
   ngOnInit() {
@@ -22,8 +24,9 @@ export class AddAssignmentComponent implements OnInit {
     const assignment = new Assignment();
     assignment.name = this._name;
     assignment.dueDate = this._dueDate;
+    assignment.submitted = false;
 
-    this._assignments.push(assignment);
+    this.child_NewAssignmentEvent.emit(assignment);
   }
 
 }

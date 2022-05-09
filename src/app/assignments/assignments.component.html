@@ -1,8 +1,11 @@
-<main *ngIf="_formVisible == false">
+<main
+  *ngIf="_formVisible == false"
+  class="container">
   <button
     mat-flat-button
     (click)="onAddButtonClick()"
-    color="primary">
+    color="primary"
+    class="addButton">
     Add assignment
   </button>
   <mat-list *ngFor="let assignment of _assignments">
@@ -26,6 +29,9 @@
   </mat-list>
 </main>
 
-<app-add-assignment *ngIf="_formVisible"></app-add-assignment>
+<app-add-assignment
+  (child_NewAssignmentEvent)="onNewAssignment($event)"
+  *ngIf="_formVisible">
+</app-add-assignment>
 
 <app-assignment-detail [_passedAssignment]="_selectedAssignment"></app-assignment-detail>
