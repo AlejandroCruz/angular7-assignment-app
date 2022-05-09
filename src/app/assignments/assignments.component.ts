@@ -33,7 +33,15 @@ export class AssignmentsComponent implements OnInit {
   constructor(private assignmentsService: AssignmentsService) { }
 
   ngOnInit() {
-    this._assignments = this.assignmentsService.getAssignments();
+    // this._assignments = this.assignmentsService.getAssignments();
+    this.getAssignments();
+  }
+  getAssignments() {
+    this
+      .assignmentsService
+      .getAssignments()
+      .subscribe(lambdaAssignments =>
+        this._assignments = lambdaAssignments);
   }
 
   setSelected(assignment: Assignment) {
