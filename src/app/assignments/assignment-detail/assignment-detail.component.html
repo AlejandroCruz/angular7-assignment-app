@@ -1,3 +1,13 @@
-<p>
-  {{_passedAssignment.name}}
-</p>
+<div
+  *ngIf="_passedAssignment"
+  class="conatainer">
+  <mat-card>
+    <mat-card-title>{{_passedAssignment.name}}</mat-card-title>
+    <mat-card-subtitle>{{_passedAssignment.dueDate | date}}</mat-card-subtitle>
+    <mat-checkbox
+      *ngIf="_passedAssignment.submitted === false"
+      (click)="_onAssignmentSubmitted()">
+      mark as submitted
+    </mat-checkbox>
+  </mat-card>
+</div>

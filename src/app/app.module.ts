@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule } from '@angular/material';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'
@@ -27,7 +27,9 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

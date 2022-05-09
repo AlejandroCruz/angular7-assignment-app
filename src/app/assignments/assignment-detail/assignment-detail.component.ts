@@ -15,4 +15,8 @@ export class AssignmentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  _onAssignmentSubmitted(){
+    this._passedAssignment.submitted = true;
+  }
+
 }
