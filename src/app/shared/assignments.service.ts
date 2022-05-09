@@ -25,4 +25,20 @@ export class AssignmentsService {
   getAssignments(): Observable<Assignment[]> {
     return of(this._assignments);
   }
+
+  addAssignments(inAssignment: Assignment): Observable<string> {
+    this._assignments.push(inAssignment);
+
+    return of('assignments.service.addAssignments: Assignment added!');
+  }
+
+  updateAssignment(inAssignment: Assignment): Observable<string> {
+    this._assignments.forEach((assignment, i) => {
+      if(assignment === inAssignment) {
+        this._assignments[i] = assignment
+        console.log('Made it!');
+      }
+    });
+    return of('assignments.service.updateAssignment: Observable<string>-->Assignment updated!');
+  }
 }

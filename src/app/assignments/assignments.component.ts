@@ -30,7 +30,7 @@ export class AssignmentsComponent implements OnInit {
   //   }
   // ]
 
-  constructor(private assignmentsService: AssignmentsService) { }
+  constructor(private injectAssignmentsService: AssignmentsService) { }
 
   ngOnInit() {
     // this._assignments = this.assignmentsService.getAssignments();
@@ -38,7 +38,7 @@ export class AssignmentsComponent implements OnInit {
   }
   getAssignments() {
     this
-      .assignmentsService
+      .injectAssignmentsService
       .getAssignments()
       .subscribe(lambdaAssignments =>
         this._assignments = lambdaAssignments);
@@ -54,7 +54,10 @@ export class AssignmentsComponent implements OnInit {
   }
 
   onNewAssignment(inEvent: Assignment) {
-    this._assignments.push(inEvent);
+    this.injectAssignmentsService
+      .addAssignments(inEvent)
+      .subscribe(lambdaSuccess => console.log(lambdaSuccess));
+
     this._formVisible = false;
   }
 }
