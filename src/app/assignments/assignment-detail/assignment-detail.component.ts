@@ -16,11 +16,11 @@ export class AssignmentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  _onAssignmentSubmitted(){
+  onAssignmentSubmitted(){
     this._passedAssignment.submitted = true;
     this.injectAssignmentService
       .updateAssignment(this._passedAssignment)
-      .subscribe(lambdaLog => console.log(lambdaLog));
+      .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.updateAssignment'
   }
 
 }

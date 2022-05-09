@@ -19,7 +19,6 @@ export class AddAssignmentComponent implements OnInit {
 
   ngOnInit() {
   }
-
   onSubmit() {
     const assignment = new Assignment();
     assignment.name = this._name;
@@ -28,5 +27,4 @@ export class AddAssignmentComponent implements OnInit {
 
     this.child_NewAssignmentEvent.emit(assignment);
   }
-
 }

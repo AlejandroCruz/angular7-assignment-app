@@ -17,23 +17,9 @@ export class AssignmentsComponent implements OnInit {
   _formVisible = false;
   _assignments: Assignment[];
 
-  // _assignments: Assignment[] = [
-  //   {
-  //     name: 'One',
-  //     dueDate: new Date('2019-01-01'),
-  //     submitted: true
-  //   },
-  //   {
-  //     name: 'Two',
-  //     dueDate: new Date('2019-01-01'),
-  //     submitted: false
-  //   }
-  // ]
-
   constructor(private injectAssignmentsService: AssignmentsService) { }
 
   ngOnInit() {
-    // this._assignments = this.assignmentsService.getAssignments();
     this.getAssignments();
   }
   getAssignments() {
@@ -43,16 +29,13 @@ export class AssignmentsComponent implements OnInit {
       .subscribe(lambdaAssignments =>
         this._assignments = lambdaAssignments);
   }
-
   setSelected(assignment: Assignment) {
     this._selectedAssignment = assignment;
   }
-
   onAddButtonClick() {
     this._formVisible = true;
     this._selectedAssignment = null;
   }
-
   onNewAssignment(inEvent: Assignment) {
     this.injectAssignmentsService
       .addAssignments(inEvent)

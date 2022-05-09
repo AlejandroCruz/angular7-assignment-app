@@ -6,7 +6,7 @@
     <mat-card-subtitle>{{_passedAssignment.dueDate | date}}</mat-card-subtitle>
     <mat-checkbox
       *ngIf="_passedAssignment.submitted === false"
-      (click)="_onAssignmentSubmitted()">
+      (click)="onAssignmentSubmitted()">
       mark as submitted
     </mat-checkbox>
   </mat-card>
