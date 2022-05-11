@@ -20,7 +20,14 @@ export class AssignmentDetailComponent implements OnInit {
     this._passedAssignment.submitted = true;
     this.injectAssignmentService
       .updateAssignment(this._passedAssignment)
-      .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.updateAssignment'
+      .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.ts'
+  }
+
+  onDelete() {
+    this.injectAssignmentService
+      .deleteAssignment(this._passedAssignment)
+      .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.ts'
+      this._passedAssignment = null;
   }
 
 }

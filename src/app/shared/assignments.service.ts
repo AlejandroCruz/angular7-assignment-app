@@ -40,4 +40,13 @@ export class AssignmentsService {
     });
     return of('assignments.service.updateAssignment: Assignment updated!');
   }
+
+  deleteAssignment(inAssignment: Assignment): Observable<string> {
+    this._assignments.forEach((assignment, i) => {
+      if (assignment === inAssignment) {
+        this._assignments.splice(i, 1);
+      }
+    });
+    return of('AssignmentsService.deleteAssignment: assignment deleted');
+  }
 }
