@@ -11,6 +11,13 @@ import { UnsubmittedDirective } from './shared/unsubmitted.directive';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
 import { AssignmentsService } from './shared/assignments.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component: AssignmentsComponent},
+  {path: 'home', component: AssignmentsComponent},
+  {path: 'add', component: AddAssignmentComponent}
+]
 
 @NgModule({
   declarations: [
@@ -32,7 +39,8 @@ import { AssignmentsService } from './shared/assignments.service';
     MatNativeDateModule,
     MatListModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AssignmentsService
