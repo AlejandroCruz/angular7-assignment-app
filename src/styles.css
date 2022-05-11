@@ -5,3 +5,7 @@
 indigo-pink.css
 pink-bluegrey.css
 purple-green.css */
+
+* {
+    font-family: monospace, sans-serif;
+}
