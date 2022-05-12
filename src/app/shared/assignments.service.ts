@@ -10,11 +10,13 @@ export class AssignmentsService {
 
   _assignments: Assignment[] = [
     {
+      id: 1,
       name: 'Math',
       dueDate: new Date('2019-01-01'),
       submitted: true
     },
     {
+      id: 2,
       name: 'Science',
       dueDate: new Date('2019-01-01'),
       submitted: false
@@ -25,6 +27,10 @@ export class AssignmentsService {
 
   getAssignments(): Observable<Assignment[]> {
     return of(this._assignments);
+  }
+
+  getAssignment(id: number): Observable<Assignment> {
+    return of(this._assignments.find(lambdaAssignment => lambdaAssignment.id === id));
   }
 
   addAssignments(inAssignment: Assignment): Observable<string> {

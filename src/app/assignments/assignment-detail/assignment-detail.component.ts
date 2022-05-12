@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
 
@@ -9,11 +10,21 @@ import { Assignment } from '../assignment.model';
 })
 export class AssignmentDetailComponent implements OnInit {
 
-  @Input() _passedAssignment: Assignment;
+  _passedAssignment: Assignment;
 
-  constructor(private injectAssignmentService: AssignmentsService) { }
+  constructor(private injectAssignmentService: AssignmentsService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.getAssignment();
+  }
+
+  getAssignment() {
+    const id = +this.route.snapshot.params.id;
+    this.injectAssignmentService
+      .getAssignment(id)
+      .subscribe(lambdaAssignment => this._passedAssignment = lambdaAssignment);
   }
 
   onAssignmentSubmitted(){
@@ -27,7 +38,7 @@ export class AssignmentDetailComponent implements OnInit {
     this.injectAssignmentService
       .deleteAssignment(this._passedAssignment)
       .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.ts'
-      this._passedAssignment = null;
+      // this._passedAssignment = null;
+      this.router.navigate(['/home']);
   }
-
 }
