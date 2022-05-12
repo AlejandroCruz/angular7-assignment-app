@@ -40,7 +40,7 @@ export class AssignmentsService {
     return of('assignments.service.addAssignments: Assignment added!');
   }
 
-  updateAssignment(inAssignment: Assignment): Observable<string> {
+  updateAssignment(inAssignment: Assignment): Observable<Assignment> {
     this._assignments.forEach((assignment, i) => {
       if(assignment === inAssignment) {
         this._assignments[i] = assignment;
@@ -48,7 +48,7 @@ export class AssignmentsService {
     });
     this.loggingService.log(inAssignment.name, 'updateAssignment.');
 
-    return of('assignments.service.updateAssignment: Assignment updated!');
+    return of(inAssignment);
   }
 
   deleteAssignment(inAssignment: Assignment): Observable<string> {

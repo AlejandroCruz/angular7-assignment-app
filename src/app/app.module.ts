@@ -12,12 +12,14 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
 import { AssignmentsService } from './shared/assignments.service';
 import { RouterModule, Routes } from '@angular/router';
+import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
 
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
   {path: 'home', component: AssignmentsComponent},
   {path: 'add', component: AddAssignmentComponent},
-  {path: 'assignment/:id', component: AssignmentDetailComponent}
+  {path: 'assignment/:id', component: AssignmentDetailComponent},
+  {path: 'assignment/:id/edit', component: EditAssignmentComponent}
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     SubmittedDirective,
     UnsubmittedDirective,
     AssignmentDetailComponent,
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    EditAssignmentComponent
   ],
   imports: [
     BrowserAnimationsModule,
