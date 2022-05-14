@@ -11,10 +11,17 @@
         (click)="onAssignmentSubmitted()">
         mark as submitted
       </mat-checkbox>
+      <button mat-stroked-button
+        (click)="onClickEdit()"
+        color="primary"
+        #edit>
+        Edit
+      </button>
       <button
         mat-flat-button
         (click)="onDelete()"
-        color="warn">
+        color="warn"
+        #delete>
         DELETE
       </button>
     </div>

@@ -1,8 +1,17 @@
 .container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 50%;
 }
 #bottom {
     align-items: flex-end;
     display: flex;
+    justify-content: space-between;
+}
+.right {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
