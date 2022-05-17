@@ -3,18 +3,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { AssignmentsService } from './shared/assignments.service';
+import { AuthGuard } from './shared/auth.guard';
+import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule, MatSlider, MatSlideToggle, MatSlideToggleModule } from '@angular/material';
+import { RouterModule, Routes } from '@angular/router';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
-import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
-import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
-import { AssignmentsService } from './shared/assignments.service';
-import { RouterModule, Routes } from '@angular/router';
-import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
-import { AuthGuard } from './shared/auth.guard';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
@@ -30,13 +30,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AssignmentsComponent,
-    SubmittedDirective,
-    UnsubmittedDirective,
-    AssignmentDetailComponent,
     AddAssignmentComponent,
-    EditAssignmentComponent
+    AppComponent,
+    AssignmentDetailComponent,
+    AssignmentsComponent,
+    EditAssignmentComponent,
+    SubmittedDirective,
+    UnsubmittedDirective
   ],
   imports: [
     BrowserAnimationsModule,
@@ -44,13 +44,14 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule,
     MatListModule,
-    MatCardModule,
-    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatNativeDateModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
