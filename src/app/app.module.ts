@@ -11,7 +11,9 @@ import { AuthGuard } from './shared/auth.guard';
 import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatListModule, MatNativeDateModule, MatSlider, MatSlideToggle, MatSlideToggleModule } from '@angular/material';
+import {  MatButtonModule, MatCardModule, MatCheckboxModule,
+          MatDatepickerModule, MatFormFieldModule, MatInputModule,
+          MatListModule, MatNativeDateModule, MatSlideToggleModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';

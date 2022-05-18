@@ -1,6 +1,10 @@
-<nav>
+<div class="cntainer">
     <h1>
-        <a routerLink="/home">{{appName}}</a>
+        <nav>
+            <a routerLink="/home">{{appName}}</a>
+        </nav>
     </h1>
-</nav>
+
+    <mat-slide-toggle color="primary" (click)="login()">Login</mat-slide-toggle>
+</div>
 <router-outlet></router-outlet>
