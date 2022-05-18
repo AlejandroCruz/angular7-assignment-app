@@ -2,6 +2,7 @@
 
 # MyIgnores
 /api/server.js
+/api/node_modules
 
 # compiled output
 /dist
