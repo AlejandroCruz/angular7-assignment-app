@@ -7,5 +7,6 @@ pink-bluegrey.css
 purple-green.css */
 
 * {
+    text-decoration-line: none;
     font-family: monospace, sans-serif;
 }
