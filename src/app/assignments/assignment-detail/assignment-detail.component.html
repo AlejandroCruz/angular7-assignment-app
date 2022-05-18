@@ -13,6 +13,7 @@
       </mat-checkbox>
       <button mat-stroked-button
         (click)="onClickEdit()"
+        [disabled]="!isAdmin()"
         color="primary"
         #edit>
         Edit
