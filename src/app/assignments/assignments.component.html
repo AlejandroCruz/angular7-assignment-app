@@ -12,9 +12,8 @@
   </div>
 
   <mat-list name="assignment-list" *ngFor="let assignment of _assignments">
-    <nav><a routerLink="/assignment/{{assignment.id}}">
         <h3 mat-subheader>{{assignment.dueDate | date}}</h3>
-        <mat-list-item (click)="setSelected(assignment)">
+        <mat-list-item (click)="setSelected(assignment)" style="cursor: pointer;">
           <p appSubmitted *ngIf="assignment.submitted;
           else unsubmitted">
             Assignment {{assignment.name}} has been submitted.
@@ -27,13 +26,5 @@
           </ng-template>
           <mat-divider></mat-divider>
         </mat-list-item>
-      </a></nav>
   </mat-list>
 </main>
-
-<!-- <app-add-assignment
-  (child_NewAssignmentEvent)="onNewAssignment($event)"
-  *ngIf="_formVisible">
-</app-add-assignment> -->
-
-<!-- <app-assignment-detail [_passedAssignment]="_selectedAssignment"></app-assignment-detail> -->

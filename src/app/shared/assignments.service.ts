@@ -36,7 +36,7 @@ export class AssignmentsService {
   }
 
   getAssignment(id: number): Observable<Assignment> {
-    return of(this._assignments.find(lambdaAssignment => lambdaAssignment.id === id));
+    return this.http.get<Assignment>(this.urlOne + '/' + id);
   }
 
   addAssignments(inAssignment: Assignment): Observable<string> {

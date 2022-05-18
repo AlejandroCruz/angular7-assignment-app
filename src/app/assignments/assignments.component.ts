@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignment.model'
 
@@ -17,7 +18,8 @@ export class AssignmentsComponent implements OnInit {
   _formVisible = false;
   _assignments: Assignment[];
 
-  constructor(private injectAssignmentsService: AssignmentsService) { }
+  constructor(private injectAssignmentsService: AssignmentsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getAssignments();
@@ -30,17 +32,9 @@ export class AssignmentsComponent implements OnInit {
         this._assignments = lambdaAssignments);
   }
   setSelected(assignment: Assignment) {
-    this._selectedAssignment = assignment;
+    this.router.navigate(['/assignment/' + assignment.id]);
   }
   onAddButtonClick() {
-    // this._formVisible = true;
     this._selectedAssignment = null;
   }
-  // onNewAssignment(inEvent: Assignment) {
-  //   this.injectAssignmentsService
-  //     .addAssignments(inEvent)
-  //     .subscribe(lambdaSuccess => console.log(lambdaSuccess));
-
-  //   this._formVisible = false;
-  // }
 }
