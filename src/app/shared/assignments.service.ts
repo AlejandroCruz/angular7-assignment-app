@@ -39,11 +39,12 @@ export class AssignmentsService {
     return this.http.get<Assignment>(this.urlOne + '/' + id);
   }
 
-  addAssignments(inAssignment: Assignment): Observable<string> {
-    this._assignments.push(inAssignment);
-    this.loggingService.log(inAssignment.name, 'addAssignments.');
+  addAssignments(inAssignment: Assignment): Observable<any> {
+    // this._assignments.push(inAssignment);
+    // this.loggingService.log(inAssignment.name, 'addAssignments.');
 
-    return of('assignments.service.addAssignments: Assignment added!');
+    // return of('assignments.service.addAssignments: Assignment added!');
+    return this.http.post<Assignment>(this.urlOne, inAssignment);
   }
 
   updateAssignment(inAssignment: Assignment): Observable<Assignment> {
