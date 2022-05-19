@@ -39,9 +39,7 @@ export class AssignmentDetailComponent implements OnInit {
   onDelete() {
     this.injectAssignmentService
       .deleteAssignment(this._passedAssignment)
-      .subscribe(lambdaLog => console.log(lambdaLog)); // Prints string from 'assignments.service.ts'
-      // this._passedAssignment = null;
-      this.router.navigate(['/home']);
+      .subscribe(lambdaLog => this.router.navigate(['/home']));
   }
 
   onClickEdit() {

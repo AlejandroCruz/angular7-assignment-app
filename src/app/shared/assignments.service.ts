@@ -51,14 +51,9 @@ export class AssignmentsService {
     return this.http.put<Assignment>(this.urlOne, inAssignment);
   }
 
-  deleteAssignment(inAssignment: Assignment): Observable<string> {
-    this._assignments.forEach((assignment, i) => {
-      if (assignment === inAssignment) {
-        this._assignments.splice(i, 1);
-      }
-    });
-    this.loggingService.log(inAssignment.name, 'deleteAssignment.');
+  deleteAssignment(inAssignment: Assignment): Observable<any> {
+    const newUrl = this.urlOne + '/' + inAssignment._id;
 
-    return of('AssignmentsService.deleteAssignment: assignment deleted');
+    return this.http.delete(newUrl);
   }
 }
