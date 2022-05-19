@@ -47,15 +47,8 @@ export class AssignmentsService {
     return this.http.post<Assignment>(this.urlOne, inAssignment);
   }
 
-  updateAssignment(inAssignment: Assignment): Observable<Assignment> {
-    this._assignments.forEach((assignment, i) => {
-      if(assignment === inAssignment) {
-        this._assignments[i] = assignment;
-      }
-    });
-    this.loggingService.log(inAssignment.name, 'updateAssignment.');
-
-    return of(inAssignment);
+  updateAssignment(inAssignment: Assignment): Observable<any> {
+    return this.http.put<Assignment>(this.urlOne, inAssignment);
   }
 
   deleteAssignment(inAssignment: Assignment): Observable<string> {

@@ -21,11 +21,13 @@ export class EditAssignmentComponent implements OnInit {
     const id = +this.route.snapshot.params.id;
     this.getAssignment(id);
   }
+
   getAssignment(id: number) {
     this.assignmentsService
       .getAssignment(id)
       .subscribe(lambdaAssignment => this.assignment = lambdaAssignment);
   }
+
   onSaveAssignment(){
     if (this.assignmentName) {
       this.assignment.name = this.assignmentName;
@@ -35,8 +37,6 @@ export class EditAssignmentComponent implements OnInit {
     }
 
     this.assignmentsService.updateAssignment(this.assignment)
-      .subscribe(lambdaAssignment => console.log(lambdaAssignment.name + ' updated'));
-    
-      this.router.navigate(['/home']);
+      .subscribe(lambdaAssignment => this.router.navigate( ['/assignment/' + this.assignment.id] ));
   }
 }
