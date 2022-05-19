@@ -3,6 +3,7 @@ import { Assignment } from '../assignments/assignment.model';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http'
+import { catchError, tap } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,19 +32,18 @@ export class AssignmentsService {
               private http: HttpClient) {}
 
   getAssignments(): Observable<Assignment[]> {
-    // return of(this._assignments);
     return this.http.get<Assignment[]>(this.url)
   }
 
   getAssignment(id: number): Observable<Assignment> {
-    return this.http.get<Assignment>(this.urlOne + '/' + id);
+    return this.http.get<Assignment>(this.urlOne + '/' + id)
+      .pipe(
+        tap(_ => console.log(`AssignmentsService.getAssignment Assignment returned id=${id}`)),
+        catchError(this.handleError<Assignment>(`AssignmentsService.getAssignment id=${id}`))
+      );
   }
 
   addAssignments(inAssignment: Assignment): Observable<any> {
-    // this._assignments.push(inAssignment);
-    // this.loggingService.log(inAssignment.name, 'addAssignments.');
-
-    // return of('assignments.service.addAssignments: Assignment added!');
     return this.http.post<Assignment>(this.urlOne, inAssignment);
   }
 
@@ -55,5 +55,14 @@ export class AssignmentsService {
     const newUrl = this.urlOne + '/' + inAssignment._id;
 
     return this.http.delete(newUrl);
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
   }
 }
