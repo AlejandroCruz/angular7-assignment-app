@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Assignment } from '../assignments/assignment.model';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { catchError, tap } from 'rxjs/internal/operators';
 
 @Injectable({
@@ -10,20 +10,11 @@ import { catchError, tap } from 'rxjs/internal/operators';
 })
 export class AssignmentsService {
 
-  _assignments: Assignment[] = [
-    {
-      id: 1,
-      name: 'Math',
-      dueDate: new Date('2019-01-01'),
-      submitted: true
-    },
-    {
-      id: 2,
-      name: 'Science',
-      dueDate: new Date('2019-01-01'),
-      submitted: false
-    }
-  ]
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   url = 'http://localhost:8010/api/assignments';
   urlOne = 'http://localhost:8010/api/assignment';
@@ -44,7 +35,10 @@ export class AssignmentsService {
   }
 
   addAssignments(inAssignment: Assignment): Observable<any> {
-    return this.http.post<Assignment>(this.urlOne, inAssignment);
+    return this.http.post<Assignment>(
+      this.urlOne,
+      inAssignment,
+      this.httpOptions);
   }
 
   updateAssignment(inAssignment: Assignment): Observable<any> {
