@@ -8,3 +8,8 @@
     align-self: flex-end;
     margin-top: -54px;
 }
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

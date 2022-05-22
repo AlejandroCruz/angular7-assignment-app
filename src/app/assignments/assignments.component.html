@@ -13,19 +13,33 @@
 
   <mat-card *ngFor="let assignment of assignments">
     <div class="header">
-      <mat-card-title>{{assignment.name}}</mat-card-title>
-      <mat-card-subtitle
-        *ngIf="assignment.submitted === true">
-        Submitted
-      </mat-card-subtitle>
-      <mat-card-subtitle
-        *ngIf="assignment.submitted === false">
-        Due {{assignment.dueDate | date}}
-      </mat-card-subtitle>
+      <div class="left">
+        <mat-card-title>{{assignment.name}}</mat-card-title>
+        <mat-card-subtitle
+          *ngIf="assignment.submitted === true">
+          Submitted
+        </mat-card-subtitle>
+        <mat-card-subtitle
+          *ngIf="assignment.submitted === false">
+          Due {{assignment.dueDate | date}}
+        </mat-card-subtitle>
+      </div>
+      <div class="right">
+        <img
+          mat-card-avatar
+          src="../../assets/avatar-icon.png"
+          alt="Writer user">
+      </div>
     </div>
 
     <mat-card-content>Example content card</mat-card-content>
   
+    <img
+      mat-card-image
+      class="card-image"
+      src="../../assets/writing-hand.png"
+      alt="writing">
+
     <mat-card-actions>
       <button
         mat-flat-button
