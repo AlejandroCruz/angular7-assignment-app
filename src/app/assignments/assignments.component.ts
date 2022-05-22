@@ -10,13 +10,8 @@ import { Assignment } from './assignment.model'
 })
 export class AssignmentsComponent implements OnInit {
 
-  _title = 'My Assignment App';
-  _btnEnabled = false;
-  _name: string;
-  _dueDate: Date;
-  _selectedAssignment: Assignment;
-  _formVisible = false;
-  _assignments: Assignment[];
+  selectedAssignment: Assignment;
+  assignments: Assignment[];
 
   constructor(private injectAssignmentsService: AssignmentsService,
               private router: Router) { }
@@ -29,12 +24,12 @@ export class AssignmentsComponent implements OnInit {
       .injectAssignmentsService
       .getAssignments()
       .subscribe(lambdaAssignments =>
-        this._assignments = lambdaAssignments);
+        this.assignments = lambdaAssignments);
   }
   setSelected(assignment: Assignment) {
     this.router.navigate(['/assignment/' + assignment.id]);
   }
   onAddButtonClick() {
-    this._selectedAssignment = null;
+    this.selectedAssignment = null;
   }
 }
