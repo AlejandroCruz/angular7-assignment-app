@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {  MatButtonModule, MatCardModule, MatCheckboxModule,
           MatDatepickerModule, MatFormFieldModule, MatInputModule,
           MatListModule, MatNativeDateModule, MatSlideToggleModule,
-          MatTabsModule } from '@angular/material';
+          MatStepperModule, MatTabsModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
@@ -53,9 +53,10 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
-    MatSlideToggleModule,
-    MatTabsModule,
     MatNativeDateModule,
+    MatSlideToggleModule,
+    MatStepperModule,
+    MatTabsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
