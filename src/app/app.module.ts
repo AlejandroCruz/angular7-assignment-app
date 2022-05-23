@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {  MatButtonModule, MatCardModule, MatCheckboxModule,
           MatDatepickerModule, MatFormFieldModule, MatInputModule,
-          MatListModule, MatNativeDateModule, MatSlideToggleModule } from '@angular/material';
+          MatListModule, MatNativeDateModule, MatSlideToggleModule,
+          MatTabsModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
@@ -53,6 +54,7 @@ const routes: Routes = [
     MatInputModule,
     MatListModule,
     MatSlideToggleModule,
+    MatTabsModule,
     MatNativeDateModule,
     RouterModule.forRoot(routes)
   ],
