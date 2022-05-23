@@ -11,13 +11,14 @@ import { AuthGuard } from './shared/auth.guard';
 import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {  MatButtonModule, MatCardModule, MatCheckboxModule,
-          MatDatepickerModule, MatFormFieldModule, MatInputModule,
-          MatListModule, MatNativeDateModule, MatSlideToggleModule,
-          MatStepperModule, MatTabsModule } from '@angular/material';
+import { MatInputModule, MatSlideToggleModule, MatSnackBarModule,
+         MatFormFieldModule, MatNativeDateModule, MatTabsModule,
+         MatDatepickerModule, MatListModule, MatStepperModule,
+         MatCheckboxModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
@@ -39,7 +40,8 @@ const routes: Routes = [
     AssignmentsComponent,
     EditAssignmentComponent,
     SubmittedDirective,
-    UnsubmittedDirective
+    UnsubmittedDirective,
+    SnackbarComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -55,10 +57,12 @@ const routes: Routes = [
     MatListModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatTabsModule,
     RouterModule.forRoot(routes)
   ],
+  entryComponents: [SnackbarComponent],
   providers: [
     AssignmentsService
   ],
