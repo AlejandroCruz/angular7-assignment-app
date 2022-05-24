@@ -16,9 +16,10 @@ import { MatInputModule, MatSlideToggleModule, MatSnackBarModule,
          MatDatepickerModule, MatListModule, MatStepperModule,
          MatCheckboxModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SubmittedDirective } from './shared/submitted.directive';
 import { UnsubmittedDirective } from './shared/unsubmitted.directive';
-import { SnackbarComponent } from './snackbar/snackbar.component';
 
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
@@ -60,7 +61,8 @@ const routes: Routes = [
     MatSnackBarModule,
     MatStepperModule,
     MatTabsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ScrollingModule
   ],
   entryComponents: [SnackbarComponent],
   providers: [
