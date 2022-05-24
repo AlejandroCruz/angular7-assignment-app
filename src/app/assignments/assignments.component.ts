@@ -12,12 +12,18 @@ export class AssignmentsComponent implements OnInit {
 
   selectedAssignment: Assignment;
   assignments: Assignment[];
+  submitted: Assignment[];
+  unsubmitted: Assignment[];
 
   constructor(private injectAssignmentsService: AssignmentsService,
               private router: Router) { }
 
   ngOnInit() {
     this.getAssignments();
+    this.injectAssignmentsService.getSubmitted()
+      .subscribe(submitted => this.submitted = submitted);
+    this.injectAssignmentsService.getUnsubmitted()
+      .subscribe(unsubmitted => this.unsubmitted = unsubmitted);
   }
   getAssignments() {
     this

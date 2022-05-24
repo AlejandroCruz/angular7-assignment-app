@@ -8,6 +8,7 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentsService } from './shared/assignments.service';
 import { AuthGuard } from './shared/auth.guard';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditAssignmentComponent } from './assignments/assignment-detail/edit-assignment/edit-assignment.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,6 +48,7 @@ const routes: Routes = [
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    DragDropModule,
     FormsModule,
     HttpClientModule,
     MatButtonModule,

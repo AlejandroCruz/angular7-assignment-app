@@ -3,7 +3,7 @@ import { Assignment } from '../assignments/assignment.model';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { catchError, tap } from 'rxjs/internal/operators';
+import { catchError, map, tap } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +49,18 @@ export class AssignmentsService {
     const newUrl = this.urlOne + '/' + inAssignment._id;
 
     return this.http.delete(newUrl);
+  }
+
+  getSubmitted() {
+    const assignments = this.http.get<Assignment[]>(this.url);
+
+    return assignments.pipe(map ( arr => arr.filter(a => a.submitted === true) ));
+  }
+
+  getUnsubmitted() {
+    const assignments = this.http.get<Assignment[]>(this.url);
+
+    return assignments.pipe(map ( arr => arr.filter(a => a.submitted === false) ));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
