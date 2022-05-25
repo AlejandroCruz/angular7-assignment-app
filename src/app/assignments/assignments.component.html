@@ -13,10 +13,18 @@
   <div class="column-container">
     <div class="example-container">
       <h2>Unsubmitted</h2>
-      <div cdkDropList [cdkDropListData]="unsubmitted" [cdkDropListConnectedTo]="submittedList"
-        (cdkDropListDropped)="onDrop($event)" #unsubmittedList="cdkDropList" class="example-list">
+      <div
+        cdkDropList
+        [cdkDropListData]="unsubmitted"
+        [cdkDropListConnectedTo]="submittedList"
+        (cdkDropListDropped)="onDrop($event)"
+        #unsubmittedList="cdkDropList"
+        class="example-list">
   
-        <div cdkDrag *ngFor="let item of submitted" class="example-box">
+        <div
+          cdkDrag
+          *ngFor="let item of unsubmitted"
+          class="example-box">
           <p>{{item.name}}</p>
         </div>
   
@@ -24,7 +32,7 @@
     </div>
   
     <div class="example-container">
-      <h2>SUbmitted</h2>
+      <h2>Submitted</h2>
       <div cdkDropList [cdkDropListData]="submitted" [cdkDropListConnectedTo]="unsubmittedList"
         (cdkDropListDropped)="onDrop($event)" #submittedList="cdkDropList" class="example-list">
   
@@ -35,7 +43,7 @@
       </div>
     </div>
   </div>
-
+<!-- #region mat group -->
   <!-- <mat-tab-group> -->
     <!-- <mat-tab label="Due"> -->
       <!-- [Comment]: Verify working add/remove DOM elements inside <class="cdk-virtual-scroll-content-wrapper"> -->
@@ -92,5 +100,5 @@
       <!-- </div> -->
     <!-- </mat-tab> -->
   <!-- </mat-tab-group> -->
-
+<!-- #endregion -->
 </main>

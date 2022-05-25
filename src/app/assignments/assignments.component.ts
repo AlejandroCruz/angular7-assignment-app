@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AssignmentsService } from '../shared/assignments.service';
@@ -25,17 +26,35 @@ export class AssignmentsComponent implements OnInit {
     this.injectAssignmentsService.getUnsubmitted()
       .subscribe(unsubmitted => this.unsubmitted = unsubmitted);
   }
+  
   getAssignments() {
     this
       .injectAssignmentsService
       .getAssignments()
-      .subscribe(lambdaAssignments =>
-        this.assignments = lambdaAssignments);
+      .subscribe(lambdaAssignments => this.assignments = lambdaAssignments);
   }
+  
   setSelected(assignment: Assignment) {
     this.router.navigate(['/assignment/' + assignment.id]);
   }
+  
   onAddButtonClick() {
     this.selectedAssignment = null;
+  }
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex)
+    }
+    else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex)
+    }
   }
 }
